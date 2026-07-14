@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Second Cut — Thrifted Pants</title>
+<meta name="description" content="Second Cut is a small secondhand shop selling one thing only: pants. Browse the current stock and message us on Instagram to claim a pair.">
+
+<!-- Fonts: Space Grotesk (display), Inter (body), IBM Plex Mono (tag/spec data) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- HEADER: logo + primary navigation              -->
+<!-- ============================================= -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a href="#home" class="logo" data-nav-link>
+      <span class="logo__mark">SECOND CUT</span>
+      <span class="logo__sub">PANTS ONLY</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#home" data-nav-link data-view="home">Home</a>
+      <a href="#about" data-nav-link data-view="about">About</a>
+      <a href="#how-to-buy" data-nav-link data-view="how-to-buy">How To Buy</a>
+      <a href="#contact" data-nav-link data-view="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================================= -->
+  <!-- HOME: headline + filters + product grid        -->
+  <!-- ============================================= -->
+  <section id="home" class="view">
+
+    <div class="intro">
+      <h1 class="intro__headline">One category. Every pair checked. Message us to claim yours.</h1>
+    </div>
+
+    <form class="filters-bar" id="filtersForm">
+      <div class="filters-bar__row">
+        <label class="field field--search">
+          <span class="field__label">Search</span>
+          <input type="search" id="filterSearch" placeholder="Search name or brand…" autocomplete="off">
+        </label>
+
+        <label class="field">
+          <span class="field__label">Brand</span>
+          <select id="filterBrand">
+            <option value="">All brands</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Waist</span>
+          <select id="filterWaist">
+            <option value="">Any waist</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Size</span>
+          <select id="filterSize">
+            <option value="">Any size</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Sort by</span>
+          <select id="filterSort">
+            <option value="newest">Newest</option>
+            <option value="price-asc">Lowest price</option>
+            <option value="price-desc">Highest price</option>
+          </select>
+        </label>
+
+        <label class="field field--checkbox">
+          <input type="checkbox" id="filterAvailable">
+          <span class="field__label">Available only</span>
+        </label>
+
+        <button type="button" class="btn btn--ghost btn--small" id="filterReset">Reset</button>
+      </div>
+    </form>
+
+    <p class="results-count" id="resultsCount" aria-live="polite"></p>
+
+    <div class="product-grid" id="productGrid"><!-- rendered by script.js --></div>
+
+    <p class="empty-state" id="emptyState" hidden>No pants match those filters. Try clearing one and looking again.</p>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT                                          -->
+  <!-- ============================================= -->
+  <section id="about" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">About</h1>
+      <p class="page-text">Second Cut started as a personal rail of pants we couldn't stop collecting, then couldn't stop passing on. We only sell one category, so every pair gets the attention a full store never has time for: waist and length measured by hand, condition checked seam by seam, nothing listed until it's ready to wear.</p>
+      <p class="page-text">No dropshipping, no duplicates pretending to be one-offs. What you see in the grid is what's actually sitting on the rail, in one size, waiting for one person.</p>
+      <p class="page-text">We keep the shop small on purpose. It's the only way to keep the tags honest.</p>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- HOW TO BUY                                     -->
+  <!-- ============================================= -->
+  <section id="how-to-buy" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">How To Buy</h1>
+
+      <ol class="steps">
+        <li class="steps__item">
+          <span class="steps__index">01</span>
+          <div>
+            <h2 class="steps__title">Find your pair</h2>
+            <p class="steps__text">Filter by brand, waist, or size, then open a listing to check the measurements and photos.</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <span class="steps__index">02</span>
+          <div>
+            <h2 class="steps__title">Tap Buy On Instagram</h2>
+            <p class="steps__text">This opens a direct message to our Instagram. Nothing is charged here — the site is a catalogue, not a checkout.</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <span class="steps__index">03</span>
+          <div>
+            <h2 class="steps__title">Tell us the name and your size</h2>
+            <p class="steps__text">Send the product name shown on the tag. We'll confirm it's still available and sort out payment and shipping over DM.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="page-text page-text--note">Pairs are one-of-one. First DM to confirm gets it — a pair marked <strong>SOLD</strong> on the site is no longer available.</p>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CONTACT                                        -->
+  <!-- ============================================= -->
+  <section id="contact" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-text">All sales and questions go through Instagram DM — it's where we'll see and answer you fastest.</p>
+
+      <div class="contact-card">
+        <a class="contact-card__link" id="contactInstagramLink" href="#" target="_blank" rel="noopener">
+          <span class="contact-card__label">Instagram</span>
+          <span class="contact-card__value" id="contactInstagramHandle">@secondcut</span>
+        </a>
+        <a class="contact-card__link" id="contactEmailLink" href="mailto:hello@example.com">
+          <span class="contact-card__label">Email</span>
+          <span class="contact-card__value">hello@example.com</span>
+        </a>
+      </div>
+
+      <p class="page-text page-text--note">We usually reply within a day. Instagram is faster than email.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; <span id="footerYear"></span> Second Cut. Pants only.</p>
+</footer>
+
+<!-- ============================================= -->
+<!-- PRODUCT MODAL                                  -->
+<!-- ============================================= -->
+<div class="modal" id="productModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+  <div class="modal__backdrop" data-modal-close></div>
+
+  <div class="modal__panel">
+    <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
+
+    <div class="modal__gallery">
+      <div class="modal__gallery-frame">
+        <img id="modalImage" src="" alt="" class="modal__image">
+        <button class="modal__nav modal__nav--prev" id="modalPrev" aria-label="Previous image">&#8249;</button>
+        <button class="modal__nav modal__nav--next" id="modalNext" aria-label="Next image">&#8250;</button>
+      </div>
+      <div class="modal__dots" id="modalDots"></div>
+    </div>
+
+    <div class="modal__info">
+      <span class="modal__sold-badge" id="modalSoldBadge" hidden>Sold</span>
+      <p class="modal__brand" id="modalBrand"></p>
+      <h2 class="modal__name" id="modalProductName"></h2>
+      <p class="modal__price" id="modalPrice"></p>
+
+      <div class="tag" id="modalTag">
+        <span class="tag__row" id="modalTagWaist"></span>
+        <span class="tag__row" id="modalTagLength"></span>
+        <span class="tag__row" id="modalTagSize"></span>
+      </div>
+
+      <p class="modal__description" id="modalDescription"></p>
+
+      <a class="btn btn--primary btn--full" id="modalBuyBtn" href="#" target="_blank" rel="noopener">
+        Buy on Instagram
+      </a>
+      <p class="modal__hint">Mention this product's name when you message us.</p>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
