@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoku.thrift — Handpicked Vintage Pants</title>
+<meta name="description" content="Zoku.thrift is a small handpicked collection of vintage and thrift pants. Every piece is one-of-one. Browse the drop and reserve on Instagram.">
+
+<!-- Fonts: Space Grotesk (headings), Inter (body), IBM Plex Mono (labels/codes) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- HEADER: logo + primary navigation              -->
+<!-- ============================================= -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+    <a href="#home" class="logo" data-nav-link data-view="home">
+      <span class="logo__mark">Zoku.thrift</span>
+      <span class="logo__sub">Handpicked Vintage Pants</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="siteNav">
+      <a href="#home" data-nav-link data-view="home">Shop</a>
+      <a href="#how-to-buy" data-nav-link data-view="how-to-buy">How To Buy</a>
+      <a href="https://www.instagram.com/zoku.thrift/" target="_blank" rel="noopener">Instagram</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================================= -->
+  <!-- HOME                                           -->
+  <!-- ============================================= -->
+  <section id="home" class="view">
+
+    <!-- ---- Full-bleed atmosphere hero ---- -->
+    <div class="hero">
+      <div class="hero__media">
+        <!-- Replace with your own photo at images/hero.jpg — falls back to a
+             warm gradient automatically if the file isn't there yet. -->
+        <img src="images/hero.jpg" alt="" class="hero__bg" id="heroImage">
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="hero__content">
+        <h1 class="hero__headline">Proof that the best style already exists.</h1>
+        <p class="hero__sub">One-of-one vintage pants.</p>
+        <div class="hero__actions">
+          <button type="button" class="btn btn--primary" id="shopDropBtn">Shop the Drop</button>
+          <a class="btn btn--ghost btn--on-dark" href="https://www.instagram.com/zoku.thrift/" target="_blank" rel="noopener">Follow @zoku.thrift</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Value points: light, breathing, no bordered container ---- -->
+    <ul class="value-strip">
+      <li class="value-strip__item">
+        <span class="value-strip__icon" aria-hidden="true">🏷</span>
+        <span class="value-strip__label">One-of-One</span>
+        <span class="value-strip__text">Every piece is unique.</span>
+      </li>
+      <li class="value-strip__item">
+        <span class="value-strip__icon" aria-hidden="true">🍃</span>
+        <span class="value-strip__label">Handpicked</span>
+        <span class="value-strip__text">Curated with care.</span>
+      </li>
+      <li class="value-strip__item">
+        <span class="value-strip__icon" aria-hidden="true">🚫</span>
+        <span class="value-strip__label">No Restocks</span>
+        <span class="value-strip__text">Once sold, it's gone.</span>
+      </li>
+      <li class="value-strip__item">
+        <span class="value-strip__icon" aria-hidden="true">✈</span>
+        <span class="value-strip__label">Fast Replies</span>
+        <span class="value-strip__text">Usually within a few hours.</span>
+      </li>
+    </ul>
+
+    <!-- ---- Filters (minimal: size + sort only) ---- -->
+    <form class="filters-bar" id="filtersForm">
+      <div class="filters-bar__row">
+        <label class="field">
+          <span class="field__label">Waist</span>
+          <select id="filterWaist">
+            <option value="">Any waist</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Size</span>
+          <select id="filterSize">
+            <option value="">Any size</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Sort</span>
+          <select id="filterSort">
+            <option value="newest">Newest</option>
+            <option value="price-asc">Lowest price</option>
+            <option value="price-desc">Highest price</option>
+          </select>
+        </label>
+      </div>
+    </form>
+
+    <p class="results-count" id="resultsCount" aria-live="polite"></p>
+
+    <div class="product-grid" id="productGrid"><!-- rendered by script.js --></div>
+
+    <p class="empty-state" id="emptyState" hidden>Nothing matches those filters. Try clearing one and looking again.</p>
+
+    <!-- ---- Latest Drops + Instagram follow ---- -->
+    <section class="instagram-section" aria-labelledby="latestDropsTitle">
+      <div class="instagram-section__intro">
+        <h2 class="instagram-section__title" id="latestDropsTitle">Latest Drops</h2>
+        <p class="instagram-section__body">The newest arrivals usually appear on Instagram before they reach the website.</p>
+      </div>
+
+      <div class="reel-grid" id="reelGrid"><!-- rendered by script.js --></div>
+
+      <div class="instagram-section__follow">
+        <h3 class="instagram-section__subtitle">See Every Drop First</h3>
+        <p class="instagram-section__body">Follow us for styling videos, fresh drops, and behind-the-scenes moments.</p>
+        <a class="btn btn--primary" href="https://www.instagram.com/zoku.thrift/" target="_blank" rel="noopener">Follow @zoku.thrift</a>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT (linked from footer)                     -->
+  <!-- ============================================= -->
+  <section id="about" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">About</h1>
+      <p class="page-text">The world already has enough new clothes.</p>
+      <p class="page-text">Zoku.thrift started with ₹15,000, a love for vintage fashion, and the belief that great style shouldn't end up in a landfill.</p>
+      <p class="page-text">Every piece is handpicked because we believe clothing with character deserves another story.</p>
+      <p class="page-text">We're not trying to sell you more clothes. We're trying to help great clothes find their next owner.</p>
+      <p class="page-text page-text--emphasis">Welcome to the tribe.</p>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- HOW TO BUY                                     -->
+  <!-- ============================================= -->
+  <section id="how-to-buy" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">How To Buy</h1>
+
+      <ol class="steps">
+        <li class="steps__item">
+          <span class="steps__index">01</span>
+          <div>
+            <h2 class="steps__title">Find Your Pair</h2>
+            <p class="steps__text">Browse the collection and open any pair to see more photos, measurements, and details.</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <span class="steps__index">02</span>
+          <div>
+            <h2 class="steps__title">Send Us a DM</h2>
+            <p class="steps__text">Tap "Reserve on Instagram" from the product page. You'll be taken directly to our Instagram messages.</p>
+          </div>
+        </li>
+        <li class="steps__item">
+          <span class="steps__index">03</span>
+          <div>
+            <h2 class="steps__title">Confirm &amp; Checkout</h2>
+            <p class="steps__text">Send us the product name or product code (for example: ZT001), along with your delivery address and phone number. We'll confirm availability, share the payment details, and arrange shipping.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="notice">
+        <p>Only one piece is available for every product.</p>
+        <p>First confirmed payment secures the item.</p>
+        <p>Because every piece is one-of-one vintage, we cannot offer returns or exchanges.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- CONTACT (linked from footer)                   -->
+  <!-- ============================================= -->
+  <section id="contact" class="view" hidden>
+    <div class="page-content">
+      <h1 class="page-title">Contact</h1>
+      <p class="page-text">All sales and questions go through Instagram DM — it's where we'll see and answer you fastest.</p>
+
+      <div class="contact-card">
+        <a class="contact-card__link" id="contactInstagramLink" href="#" target="_blank" rel="noopener">
+          <span class="contact-card__label">Instagram</span>
+          <span class="contact-card__value" id="contactInstagramHandle">@zoku.thrift</span>
+        </a>
+        <a class="contact-card__link" id="contactEmailLink" href="mailto:zokuthrift@gmail.com">
+          <span class="contact-card__label">Email</span>
+          <span class="contact-card__value">zokuthrift@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <nav class="site-footer__nav">
+    <a href="#about" data-nav-link data-view="about">About</a>
+    <a href="https://www.instagram.com/zoku.thrift/" target="_blank" rel="noopener">Instagram</a>
+    <a href="#how-to-buy" data-nav-link data-view="how-to-buy">How To Buy</a>
+    <a href="#contact" data-nav-link data-view="contact">Contact</a>
+  </nav>
+  <p class="site-footer__tagline">Pre-loved style. Re-loved planet.</p>
+  <p class="site-footer__thanks">Thanks for supporting circular fashion.</p>
+  <p class="site-footer__copy">&copy; <span id="footerYear"></span> Zoku.thrift</p>
+</footer>
+
+<!-- ============================================= -->
+<!-- PRODUCT MODAL                                  -->
+<!-- ============================================= -->
+<div class="modal" id="productModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+  <div class="modal__backdrop" data-modal-close></div>
+
+  <div class="modal__panel">
+    <button class="modal__close" id="modalClose" aria-label="Close">&times;</button>
+
+    <div class="modal__gallery">
+      <div class="modal__gallery-frame">
+        <img id="modalImage" src="" alt="" class="modal__image">
+        <button class="modal__nav modal__nav--prev" id="modalPrev" aria-label="Previous image">&#8249;</button>
+        <button class="modal__nav modal__nav--next" id="modalNext" aria-label="Next image">&#8250;</button>
+      </div>
+      <div class="modal__dots" id="modalDots"></div>
+    </div>
+
+    <div class="modal__info">
+      <div class="modal__scroll">
+        <span class="modal__sold-badge" id="modalSoldBadge" hidden>Sold</span>
+        <p class="modal__code" id="modalCode"></p>
+        <p class="modal__brand" id="modalBrand"></p>
+        <h2 class="modal__name" id="modalProductName"></h2>
+        <p class="modal__price" id="modalPrice"></p>
+
+        <div class="tag" id="modalTag">
+          <span class="tag__row" id="modalTagWaist"></span>
+          <span class="tag__row" id="modalTagLength"></span>
+          <span class="tag__row" id="modalTagSize"></span>
+        </div>
+
+        <p class="modal__description" id="modalDescription"></p>
+
+        <div class="modal__labels">
+          <span class="modal__label-pill">One-of-One</span>
+          <span class="modal__label-pill">No Restocks</span>
+        </div>
+      </div>
+
+      <div class="modal__cta">
+        <a class="btn btn--primary btn--full" id="modalBuyBtn" href="#" target="_blank" rel="noopener">
+          Reserve on Instagram
+        </a>
+        <p class="modal__hint">Only one available. No restocks.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
