@@ -66,6 +66,24 @@ const products = [
       "images/dickies-874/back1.jpg"
     ]
   },
+{
+    id: 2,
+    code: "ZT002",
+    name: "Blue striped jeans",
+    price: 599,
+    waist: 34,
+    length: 40,
+    size: "L",
+    // brand: "Dickies",
+    description: "Twill work trouser in faded khaki. Straight through the leg, roomy through the seat.",
+    sold: false,
+    dateAdded: "2026-06-28",
+    images: [
+      "images/dickies-874/front1.jpg",
+      "images/dickies-874/back1.jpg"
+    ]
+  },
+   
   {
     id: 3,
     code: "ZT003",
