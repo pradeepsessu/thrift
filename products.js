@@ -79,8 +79,8 @@ const products = [
     sold: false,
     dateAdded: "2026-06-28",
     images: [
-      "images/dickies-874/front1.jpg",
-      "images/dickies-874/back1.jpg"
+      "images/dickies-874/diy1.jpg",
+      "images/dickies-874/diy2.jpg"
     ]
   },
    
